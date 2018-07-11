@@ -28,6 +28,8 @@ If you do not have this software installed, MSPs have clear instructions to NOT 
 * [Visual Studio Code](https://code.visualstudio.com/download)
 * [NodeJS](https://nodejs.org/en/download/)
 * [NPM (Node Package Manager)](https://www.npmjs.com/get-npm)
+* [Docker Community](https://www.docker.com/community-edition)
+* [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 # Accounts Needed (IMPORTANT)
 
