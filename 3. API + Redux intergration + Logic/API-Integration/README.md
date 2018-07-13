@@ -11,6 +11,8 @@ We will be using react-dropzone <https://github.com/react-dropzone/react-dropzon
 After that, we will be installing "react-loader-spinner". This is just a spinner widget that will be in place while our results load.
 In your terminal type in `npm i --save react-loader-spinner`.
 
+Finally, if you haven't followed part 1 type in `npm i` and you will install all of the declared dependencies.
+
 We will now go to the images.d.ts file and declare the module react-loader-spinner. We do this because, in TypeScript everything has be explicitly "typed". Since this is not a TypeScript module, we will have to declare it inside the "typings" file so that the TypeScript compiler does not get upset.
 
 Type in
