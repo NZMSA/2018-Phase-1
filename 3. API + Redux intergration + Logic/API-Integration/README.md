@@ -5,11 +5,11 @@ In this session, we will be integrating our front end to the dankNotDank back en
 ## Setting up libraries
 So first, open up the terminal on visual studio code View -> Integrated Terminal Or press Ctrl + `.
 
-Type `npm i react-dropzone` followed by `npm i @types/react-dropzone` into your integrated terminal.
+Type `npm i --save react-dropzone` followed by `npm i @types/react-dropzone` into your integrated terminal.
 We will be using react-dropzone <https://github.com/react-dropzone/react-dropzone> in order to have a drag and drop API for our images.
 
 After that, we will be installing "react-loader-spinner". This is just a spinner widget that will be in place while our results load.
-In your terminal type in `npm i react-loader-spinner`.
+In your terminal type in `npm i --save react-loader-spinner`.
 
 We will now go to the images.d.ts file and declare the module react-loader-spinner. We do this because, in TypeScript everything has be explicitly "typed". Since this is not a TypeScript module, we will have to declare it inside the "typings" file so that the TypeScript compiler does not get upset.
 
