@@ -41,8 +41,6 @@ All students should have this from Basic Training, to check, visit the [Microsof
 
 If you don't, then visit [Microsoft Azure](https://azure.microsoft.com/en-us/free/students/) to register yourself as a student, verify and activate Azure through the links on the site.
 
-Next up, you need to create a Bot Service in Azure, which you can do here [https://ms.portal.azure.com/#create/Microsoft.BotApp](https://ms.portal.azure.com/#create/Microsoft.BotApp). We reccomend you select a new resource group as well.
-
 # [Why React + Typescript?](https://blog.logrocket.com/how-why-a-guide-to-using-typescript-with-react-fffb76c61614)
 
 TypeScript is a free, open-source programming language developed and maintained by Microsoft. It is a strict superset of JavaScript and adds optional static typing and class-based object-oriented programming to the language.
