@@ -37,6 +37,7 @@ Copy paste this snippet into your `tslint.json` file
   }
 ```
 
+
 ## Starting the coding
 In React you can define components in two different ways.
 1. As a function
@@ -55,7 +56,15 @@ interface IState {
   dropzone: any
 }
 ```
+
 Where imageFiles are the images that you upload, results are the results from the API, and the dropzone is a special state so that we can bind the current execution context to the state to access later. This is there so that we have the same context even when in an callback function. Don't worry if you don't understand what all of this means, hopefully with more time it will be clear!
+
+You want to make sure that your export line in your app.tsx file looks like this too, this is so that the class actually adheres to the interface that we previously created.
+
+```typescript
+export default class App extends React.Component<{}, IState>
+```
+
 
 We now want to initialize our constructor inside of the App.tsx class
 
