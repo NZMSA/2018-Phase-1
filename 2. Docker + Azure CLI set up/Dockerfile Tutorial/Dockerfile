@@ -1,12 +1,12 @@
-FROM node
+FROM node:8.11.3
 
 ENV NPM_CONFIG_LOGLEVEL warn
 ARG app_env
 ENV APP_ENV $app_env
 
-RUN mkdir -p /frontend
-WORKDIR /frontend
-COPY ./frontend ./
+RUN mkdir -p /my-app
+WORKDIR /my-app
+COPY ./my-app ./
 
 RUN npm install
 
@@ -19,5 +19,3 @@ CMD if [ ${APP_ENV} = production ]; \
 	else \
 	npm run start; \
 	fi
-
-EXPOSE 3000
