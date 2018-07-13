@@ -1,0 +1,23 @@
+.centreText {
+  text-align: center;
+}
+
+h1 {
+  font-size: 150px;
+}
+
+.dropZone {
+height: 50vh;
+border-style: dashed;
+}
+
+.image {
+max-width: 100%;
+height: 50vh;
+padding-top: 3px;
+padding-bottom: 9px;
+}
+
+.dank {
+padding-top: 20px;
+}
