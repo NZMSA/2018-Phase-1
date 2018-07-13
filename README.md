@@ -41,6 +41,17 @@ All students should have this from Basic Training, to check, visit the [Microsof
 
 If you don't, then visit [Microsoft Azure](https://azure.microsoft.com/en-us/free/students/) to register yourself as a student, verify and activate Azure through the links on the site.
 
+# WiFi
+
+Non UoA students should be able to connect via Eduroam. Please familiarise yourself with how to login using your university credentials.
+
+Some helpful links:
+
+* AUT - https://www.aut.ac.nz/being-a-student/current-postgraduates/it-information/archives/how-to-access-eduroam
+* MIT - http://icts.manukau.ac.nz/index.php/student-guides/wireless-access/eduroam/
+* Unitec - https://www.unitec.ac.nz/askims/unitec-ask-i-m-s/services/eduroam/
+* Massey - https://www.massey.ac.nz/massey/staffroom/national-shared-services/information-technology-services/network/wireless-network/eduroam-wireless-network-service.cfm
+
 # [Why React + Typescript?](https://blog.logrocket.com/how-why-a-guide-to-using-typescript-with-react-fffb76c61614)
 
 TypeScript is a free, open-source programming language developed and maintained by Microsoft. It is a strict superset of JavaScript and adds optional static typing and class-based object-oriented programming to the language.
