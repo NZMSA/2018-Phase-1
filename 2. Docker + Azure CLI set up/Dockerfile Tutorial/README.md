@@ -22,6 +22,8 @@ my-app/
 Dockerfile
 .dockerignore
 ```
+Note: If you're using docker toolbox please run the below commands in the docker toolbox.
+
 Then to build the image run
 ```shell
 docker build -t my-app .
