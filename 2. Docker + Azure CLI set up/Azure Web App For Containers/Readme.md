@@ -205,7 +205,7 @@ Let's configure the container.
 
 ![Web app for Containers](images/webappForContainers4.png)
 
-1. As we have created and push our docker image to Azure Container Registry, let's go ahead and select that.
+1. As we have created and pushed our docker image to Azure Container Registry, let's go ahead and select that.
 
 2. Select your registry name.
 
@@ -213,15 +213,16 @@ Let's configure the container.
 
 4. Select the tag.
 
+>- We do not need to specify a startup file, as this will be discovered automatically.
+
 5. Click OK to save your container configuration.
 
-We do not need to specify a startup file, as this will be discovered automatically.
 
 Once this is all done, your window should look something like:
 
 ![Web app for Containers](images/webappForContainers5.png)
 
-Before you go ahead and click "Create", it's best to select the "Pin to dashboard" checkbox. This will create a short cut to your web app on your Azure dashboard for easy access.
+Before you go ahead and click "Create", it's best to select the "Pin to dashboard" checkbox. This will create a shortcut to your web app on your Azure dashboard for easy access.
 
 Azure will take a few moments to create your web app. Once successful click on your web app, as we need to configure some settings on it. (In some cases your web app will open automatically once successfully create.)
 
@@ -234,21 +235,22 @@ On the left menu of your App Service, you will note a menu item (1) "Application
 
 ![Web app for Containers](images/webappForContainers7.png)
 
-Select the (1) "Add new setting" link. We need to add a Key/Value pair which tells Azure about our different port number. The Key is "WEBSITES_ROOT", with the value being 3000 (or whatever your dockerfile uses).
+Select the (1) "Add new setting" link. We need to add a Key/Value pair which tells Azure about our different port number. The key is "WEBSITES_ROOT", with the value being 3000 (or whatever your dockerfile uses).
 
 ![Web app for Containers](images/webappForContainers8.png)
 
-![Web app for Containers](images/webappForContainers8A.png)
-
 Once entered, click (2) save on the top of the window.
 
-One last thing we need to do is restart our web app. This isn't always neccessary, but allows us to be certain that Azure will use the newly specified port. To do this, select "Overview" from the left menu and select (1) "Restart".
+![Web app for Containers](images/webappForContainers8A.png)
+
+
+One last thing we need to do is restart our web app. This isn't always neccessary, but it allows us to be certain that Azure will use the newly specified setting. To do this, select "Overview" from the left menu and select (1) "Restart".
 
 ![Web app for Containers](images/webappForContainers9.png)
 
-Once your web app has restart, click the link under the URL heading on the window (This is located to the slight bottom right of the restart button).
+Once your web app has restarted, click the link under the URL heading on the window (This is located to the slight bottom right of the restart button).
 
-This should open a new tab with a white screen. Depending on your internet connection it can take up to 10 minutes for your web app to load the first time. This is presummably due to the intialisation the docker container. Any subsequent visits to your web app will be much quicker.
+This should open a new tab with a white screen. Depending on your internet connection it can take up to 10 minutes for your web app to load the first time. This is presummably due to the intialisation of the docker container. Any subsequent visits to your web app will be much quicker.
 
 > Note: If once loaded, you are displayed with a 502 error, simply refresh the page.
 
