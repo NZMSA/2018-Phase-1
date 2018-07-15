@@ -178,57 +178,80 @@ To verify your image has successfully pushed you can list all the images in your
 
 All thats left to do now is to create a web app for containers and configure it to run a container stored in your Azure Container Registry.
 
-Before we create a web app, we will first need to an App Service plan (if you don't already have one.) An app service plan will determine the location, features, cost, and compute resource your web app will have. We will be using the free tier. The command is as follow. ``` az appservice plan create --name <plan-name> --resource-group <resource-group> --sku FREE``` For \<plan-name>, you can enter any name you like. For resource-group, its best to use the resource group you've used for your container above. Finally SKU dictates what plan you want to use. Based on this, my command will look as below:
+## Create a web app using a container
+To create the web app using a container, we will need to use [Azure Portal](portal.azure.com) for this.
 
-```
-az appservice plan create --name dankServicePlan --resource-group dankNotDankRG --sku FREE
-```
+Once logged in, select (1) "Create a resource" from the left menu, select (2) "Web", and then click (3) Web app for containers.
 
-A JSON file will be returned once the plan has been created. Now we can go ahead and create our web app. The command to do this is: ```az webapp create --name <webappname> --resource-group <resource -group> --plan <plan-name>```. \<webappname> needs to be unique, so if you use the one which is below, or someone elses it wont work. The resource group is once again the one you've used previously in this tutorial. Finally the \<plan-name> is the plan you created in the previous step above.
+![Web app for Containers](images/webappForContainers1.png)
 
-```
-az webapp create --name ksDankNotDank --resource-group dankNotDankRG --plan dankServicePlan
-```
+We now need to fill out some details for this new web app we plan to create.
 
-Another JSON file will output on cmd.
+![Web app for Containers](images/webappForContainers2.png)
 
-Finally we need to configure this newly created service to run the container in our registry. This command is a little longer. Each parameter has been explained below:
+1. This will be your app name, and subsequently the URL for your web app. This needs to be unique (so if you copy the one I use, it wont work!!). You're more than welcome to name it whatever you like, though if you're stuck, feel free to use your name followed by danknotdank.
 
-```
-az webapp config container set 
---name ksDankNotDank //name of your web app from above
---resource-group dankNotDankRG //name of your resource group 
---docker-custom-image-name khodaSisodiaDankRegistry.azurecr.io/dankimage //docker image name
---docker-registry-server-url https://khodaSisodiaDankRegistry.azurecr.io //Your ACR server URL
---docker-registry-server-user khodaSisodiaDankRegistry //This can be obtained using the az acr credential show --name khodaSisodiaDankRegistry command
---docker-registry-server-password 123456789abcdef //The password will also be returned from the az acr cred command.
-```
+2. This is where you select your resource group. We created one right at the beginning of this tutorial (remember!?), so let's use that.
 
-Once this command has run, it will return something similar to:
+- The App Service plan will determine the location, features, cost, and compute resource your web app will have. You can make changes to this if you wish, however using the default created one is fine for this tutorial.
 
-```
-[
-  {
-    "name": "DOCKER_CUSTOM_IMAGE_NAME",
-    "slotSetting": false,
-    "value": "mydockerimage"
-  },
-  {
-    "name": "DOCKER_REGISTRY_SERVER_URL",
-    "slotSetting": false,
-    "value": "<azure-container-registry-name>.azurecr.io"
-  },
-  {
-    "name": "DOCKER_REGISTRY_SERVER_USERNAME",
-    "slotSetting": false,
-    "value": "<registry-username>"
-  },
-  {
-    "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
-    "slotSetting": false,
-    "value": null
-  }
-]
-```
+3. Configure container. This is where you select which container registry your docker image is located in, the image name, and version. More details on this below.
 
-Congratulations, you've successfully created a web app using a container! If you navigate to your URL (the name of your webapp + .azurewebsites.net; in this tutorial's case: https://ksdanknotdank.azurewebsites.net/), you should be able to view your web app!
+So far your web app creation should look something like:
+
+![Web app for Containers](images/webappForContainers3.png)
+
+Let's configure the container.
+
+![Web app for Containers](images/webappForContainers4.png)
+
+1. As we have created and pushed our docker image to Azure Container Registry, let's go ahead and select that.
+
+2. Select your registry name.
+
+3. Select your docker image.
+
+4. Select the tag.
+
+>- We do not need to specify a startup file, as this will be discovered automatically.
+
+5. Click OK to save your container configuration.
+
+
+Once this is all done, your window should look something like:
+
+![Web app for Containers](images/webappForContainers5.png)
+
+Before you go ahead and click "Create", it's best to select the "Pin to dashboard" checkbox. This will create a shortcut to your web app on your Azure dashboard for easy access.
+
+Azure will take a few moments to create your web app. Once successful click on your web app, as we need to configure some settings on it. (In some cases your web app will open automatically once successfully create.)
+
+![Web app for Containers](images/webappForContainers6.png)
+
+What we need to do now is configure our exposed port number. If you recall earlier to the Dockerfile tutorial, you would have noticed a line similar to "hs -p 3000". This sets the port our image uses to 3000. Azure web apps currently only expose ports 80 and 443, therefore we need to tell Azure what port our image uses.
+
+On the left menu of your App Service, you will note a menu item (1) "Application Settings". Click it.
+
+
+![Web app for Containers](images/webappForContainers7.png)
+
+Select the (1) "Add new setting" link. We need to add a Key/Value pair which tells Azure about our different port number. The key is "WEBSITES_ROOT", with the value being 3000 (or whatever your dockerfile uses).
+
+![Web app for Containers](images/webappForContainers8.png)
+
+Once entered, click (2) save on the top of the window.
+
+![Web app for Containers](images/webappForContainers8A.png)
+
+
+One last thing we need to do is restart our web app. This isn't always neccessary, but it allows us to be certain that Azure will use the newly specified setting. To do this, select "Overview" from the left menu and select (1) "Restart".
+
+![Web app for Containers](images/webappForContainers9.png)
+
+Once your web app has restarted, click the link under the URL heading on the window (This is located to the slight bottom right of the restart button).
+
+This should open a new tab with a white screen. Depending on your internet connection it can take up to 10 minutes for your web app to load the first time. This is presummably due to the intialisation of the docker container. Any subsequent visits to your web app will be much quicker.
+
+> Note: If once loaded, you are displayed with a 502 error, simply refresh the page.
+
+Congratulations, you've successfully created a web app using a container! If you navigate to your URL (the name of your webapp + .azurewebsites.net; in this tutorial's case: https://khodasisodiadanknotdank.azurewebsites.net/), you should be able to view your web app!

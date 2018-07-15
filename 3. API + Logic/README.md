@@ -47,7 +47,7 @@ Declaring a component as a class has its own benefits that we will talk about sh
 
 We now want to start by declaring the interface that the State of the component will adhere to. If you are familiar with object-oriented programming languages "state" is similar to a private field. State is fully controlled and private to the class it is contained in. Only components that are declared as a class will have state in them.
 
-The interface we will define is 
+The interface we will define inside your app.tsx, before the component declaration is 
 
 ```typescript
 interface IState {
