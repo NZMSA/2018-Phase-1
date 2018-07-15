@@ -235,7 +235,7 @@ On the left menu of your App Service, you will note a menu item (1) "Application
 
 ![Web app for Containers](images/webappForContainers7.png)
 
-Select the (1) "Add new setting" link. We need to add a Key/Value pair which tells Azure about our different port number. The key is "WEBSITES_ROOT", with the value being 3000 (or whatever your dockerfile uses).
+Select the (1) "Add new setting" link. We need to add a Key/Value pair which tells Azure about our different port number. The key is "WEBSITES_PORT", with the value being 3000 (or whatever your dockerfile uses).
 
 ![Web app for Containers](images/webappForContainers8.png)
 
