@@ -2,7 +2,7 @@
 ## Introduction
 In this module we will be looking at how to spruce up out UI with some componenets using [MaterialUI](https://material-ui.com/).
 
-MaterialUI provodes us with react components that implemenet google material ui design.
+MaterialUI provides us with react components that implement google material ui design.
 
 ## Getting Started
 We will simply use npm to install the material ui package. To do inside your terminal type
@@ -49,6 +49,12 @@ Insert the following at the top of the our file.
 import {AppBar, IconButton, Toolbar, Typography} from '@material-ui/core/';
 ```
 
+Don't forget to also include the `import` statement for materialUI icons
+
+```
+import MenuIcon from '@material-ui/icons/Menu';
+```
+
 And change the following.
 
 ```
@@ -69,6 +75,7 @@ export const Header: React.StatelessComponent<{}> = () => {
     );
 }
 ```
+
 
 
 

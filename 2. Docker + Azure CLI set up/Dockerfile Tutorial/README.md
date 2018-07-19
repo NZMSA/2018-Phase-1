@@ -22,6 +22,8 @@ my-app/
 Dockerfile
 .dockerignore
 ```
+Note: If you're using docker toolbox please run the below commands in the docker toolbox.
+
 Then to build the image run
 ```shell
 docker build -t my-app .
@@ -34,6 +36,8 @@ To run the docker image
 ```shell
 docker run -it -p 3000:3000 -v [path to dockerfile]/my-app/src:/my-app/src [image id]
 ```
+[path to dockerfile] = means the path in your file explorer to the folder that containes your app and the Dockerfiles.
+
 If you navigate to localhost, your app should now be running.
 
 Below is an explanation of the commands written in the dockerfile:
