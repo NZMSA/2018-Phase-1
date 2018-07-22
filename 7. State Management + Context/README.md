@@ -4,7 +4,7 @@
 React itself, is a library for UI. It does not come with any explicit way to manage state cleverly. State can be described as a property of the system. In this case we are trying to manage the "Global" state of a system. So state that is available to all parts of the system.
 
 ### Problem with React's state management system
-If you are using react as it is, you would be passing "Props" through intermediate elements to pass the data down to another component.
+If you are using React as it is, you would be passing "Props" through intermediate elements to pass the data down to another component.
 
 The easiest way to explain why this is problematic is by giving the example that's on the React Documentation
 
@@ -35,7 +35,7 @@ function ThemedButton(props) {
 Here you can see you have to pass in a prop to the toolbar  so that you can pass it to the ThemedProp function, so that you can apply the theme. You are having to pass it through multiple intermediate components for a component a few levels deeper in the component tree to access it.
 
 ### Solution
-When using a state management system like context (Which is a very simple one) you do not have to pass down props to child components through intermediate components.
+When using a state management system like Context (which is a very simple one) you do not have to pass down props to child components through intermediate components.
 
 ```javascript
 // Context lets us pass a value deep into the component tree
@@ -137,7 +137,7 @@ interface IState {
   toggleTheme: any
 }
 ```
-Second, we have not imported the themes from the theme-context.tsx file we created before. So add the following import statement to the App.tsx file at the top.
+Second, we have not imported the themes from the theme-context.tsx file we created before. So add the following import statement to the top of the App.tsx file.
 ```typescript
 import {themes} from './theme-context';
 ```
@@ -145,12 +145,12 @@ Finally, we need to define the toggleTheme method. Add the following function in
 ```typescript
 public toggleTheme = () => {
   this.setState(state => ({
-    theme: 
+    theme:
       state.theme === themes.light
         ? themes.dark
         : themes.light,
   }));
-}; 
+};
 ```
 
 Now it is time to start using our themes. In the import statement we made earlier add ThemeContext. In the render method for App.tsx, encapsulate all the html code, from the first div to the last so that it looks like the following.
@@ -204,7 +204,7 @@ public render() {
         </ThemeContext.Consumer>
 
       </ThemeContext.Provider>
-    
+
     </div>
   );
 }
