@@ -1,6 +1,10 @@
 # Phase 1 Training 2018
 The official repository and source of knowledge for MSA students taking part in MSA 2018 Phase 1 Training. 
 
+# Assignment
+
+Full assignment brief can be found [here] (/Assignment/Phase 1.pdf)
+
 # Your Device
 
 You must bring your own device to Phase 1 training, and you will be using this for most of training and assessment in a hands on manner. 
