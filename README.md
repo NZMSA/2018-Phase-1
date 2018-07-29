@@ -3,7 +3,7 @@ The official repository and source of knowledge for MSA students taking part in 
 
 # Assignment
 
-Full assignment brief can be found [here] (/Assignment/Phase 1.pdf)
+Full assignment brief can be found [here](https://github.com/NZMSA/2018-Phase-1/blob/master/Assignment/Phase%201.pdf). Submissions close September 5th, 11:59 PM.
 
 # Your Device
 
